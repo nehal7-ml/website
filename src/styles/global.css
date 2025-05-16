@@ -33,6 +33,65 @@ code {
     monospace;
 }
 
+@layer utilities {
+  @keyframes hammer-hit {
+    0%, 100% {
+      transform: rotate(1deg) translate(0px, 0px);
+    
+    }
+    50% {
+      transform: rotate(60deg) translate(-45px, 0px);
+    }
+    
+  100% {
+    transform: rotate(1deg) translate(0px, 0px);
+  }
+  }
+
+@keyframes sparkBurstAnimation {
+    0% {
+      opacity: 0;
+    }
+    49% { /* Quick burst out */
+        opacity: 0.2;
+        transform: scale(0.3) translate(0,0); /* Start small at origin */
+    }
+    54% {
+
+      opacity: 1;
+      /* Sparks move outwards. Each spark gets its own tx, ty from CSS variables */
+      transform: scale(1.5) translate(var(--spark-tx, 0px), var(--spark-ty, 0px));
+  }
+  58% {
+    opacity: 0.4;
+    transform: scale(0.3) translate(0, 0);
+
+  }
+
+    100% {
+        opacity: 0;  
+  }
+  }
+
+
+  .animate-spark {
+    animation-name: sparkBurstAnimation;
+    animation-duration: 1.2s; /* Sparks last for 0.4 seconds */
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards; /* Stay at the end state (faded out, moved) */
+    animation-iteration-count: infinite;
+    opacity:1;
+    /* Initial opacity for the animation itself */
+    /* transform-origin for each spark line is its own (0,0) due to parent group transform */
+  }
+
+  .animate-hammer-hit {
+    animation: hammer-hit 1.2s ease-in-out infinite;
+    transform-origin: bottom left;
+  }
+}
+
 @theme {
   --font-poppins: "Poppins", sans-serif;
+ 
 }

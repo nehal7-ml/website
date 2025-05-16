@@ -1,7 +1,15 @@
 ---
 import { Image } from 'astro:assets';
+
+interface Props {
+ height: number;
+  width: number;
+
+}
+
+let { height=100, width=100 }:Props = Astro.props;
 ---
 
-<div>
-  <Image loading={'eager'} class="rounded-full" src="/logo.png" alt="logo" width="100" height="100" />
+<div class="rounded-full overflow-hidden w-max h-max">
+  <Image loading={'eager'} class="p-3" src="/logo-dark.png" alt="logo" width={width} height={height} />
 </div>

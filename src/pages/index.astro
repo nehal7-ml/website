@@ -7,7 +7,13 @@ import experience from '../data/expirence.json';
 import avatar from '/public/avatar.png';
 import Navbar from '../components/Navbar.astro';
 import ContactButton from '../components/ContactButton.astro';
+import {
+  getSecret,
+ } from 'astro:env/server';
 
+
+const ready =  getSecret('READY') ==="TRUE";
+if(!ready) return Astro.redirect('/coming-soon');
 
 
 ---
