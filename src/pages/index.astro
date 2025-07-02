@@ -13,12 +13,11 @@ import {
 
 
 const ready =  getSecret('READY') ==="TRUE";
-if(!ready) return Astro.redirect('/coming-soon');
-
+if(!ready) return Astro.rewrite('/coming-soon');
 
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Software Smith">
   <Navbar />
   <main>
 
