@@ -1,0 +1,18 @@
+[
+  {
+    "degree": "Master of Information Technology",
+    "institution": "University of Melbourne",
+    "location": "Melbourne, Australia",
+    "date": "July 2021",
+    "gpa": "77.65/100",
+    "focus": "Specialized in Distributed Systems, Cloud Computing Architecture, and Cybersecurity. Developed a deep mastery of complex software engineering paradigms, focusing on the design and implementation of resilient, large-scale digital infrastructures and advanced information modeling."
+  },
+  {
+    "degree": "Bachelor of Technology in Electronics and Communication",
+    "institution": "Amity University",
+    "location": "Noida, India",
+    "date": "May 2017",
+    "gpa": "7.80/10",
+    "focus": "Comprehensive foundation in Signal Processing, Microprocessor Design, and Embedded Systems. Explored the intersection of physical hardware and digital logic, mastering the low-level communication protocols and electronic architectures that power modern computing."
+  }
+]

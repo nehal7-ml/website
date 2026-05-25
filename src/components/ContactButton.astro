@@ -1,10 +1,95 @@
----
+<a 
+  href="#contact" 
+  id="hammer-button"
+  class="relative bg-gradient-ember cursor-pointer text-white font-black py-4 px-10 rounded-xl border border-orange-500/30 text-center inline-block transition-all duration-300 shadow-2xl overflow-visible active:scale-90 active:brightness-150 group"
+>
+  <span class="relative z-10 uppercase tracking-widest text-lg">Contact the Smith</span>
+  <div id="spark-container" class="absolute inset-0 -z-10 pointer-events-none"></div>
+</a>
 
----
+<style>
+  .bg-gradient-ember {
+    background-image: var(--accent-gradient-red);
+    background-size: 400%;
+    background-position: 0%;
+    /* Constant slow red glow */
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
 
+  @keyframes glow-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.3), inset 0 0 10px rgba(239, 68, 68, 0.2);
+    }
+    50% { 
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), inset 0 0 20px rgba(239, 68, 68, 0.4);
+    }
+  }
 
-  
-<button class="bg-gradient-to-br from-gray-800 to-gray-950 hover:shadow-md hover:shadow-gray-700 cursor-pointer  text-white font-bold py-2 px-4 rounded-full border-1">
+  /* Hammer strike on active */
+  #hammer-button:active {
+    transition: none;
+    box-shadow: 0 0 50px rgba(251, 146, 60, 0.8), 0 0 80px rgba(239, 68, 68, 0.6);
+  }
+</style>
 
-  Contact Me
-</button>
+<script>
+  const initHammerEffect = () => {
+    const button = document.getElementById('hammer-button');
+    const container = document.getElementById('spark-container');
+    if (!button || !container) return;
+
+    const triggerSparks = () => {
+      const rect = button.getBoundingClientRect();
+      const count = 25;
+      
+      for (let i = 0; i < count; i++) {
+        const spark = document.createElement('div');
+        spark.className = 'spark';
+        
+        // Randomly choose an edge (0: top, 1: right, 2: bottom, 3: left)
+        const edge = Math.floor(Math.random() * 4);
+        let x, y, tx, ty;
+        
+        const distance = 100 + Math.random() * 200;
+        
+        if (edge === 0) { // Top
+          x = Math.random() * rect.width;
+          y = 0;
+          tx = (x - rect.width / 2) + (Math.random() - 0.5) * 100 + 'px';
+          ty = -distance + 'px';
+        } else if (edge === 1) { // Right
+          x = rect.width;
+          y = Math.random() * rect.height;
+          tx = distance + 'px';
+          ty = (y - rect.height / 2) + (Math.random() - 0.5) * 100 + 'px';
+        } else if (edge === 2) { // Bottom
+          x = Math.random() * rect.width;
+          y = rect.height;
+          tx = (x - rect.width / 2) + (Math.random() - 0.5) * 100 + 'px';
+          ty = distance + 'px';
+        } else { // Left
+          x = 0;
+          y = Math.random() * rect.height;
+          tx = -distance + 'px';
+          ty = (y - rect.height / 2) + (Math.random() - 0.5) * 100 + 'px';
+        }
+
+        spark.style.left = x + 'px';
+        spark.style.top = y + 'px';
+        spark.style.setProperty('--tx', tx);
+        spark.style.setProperty('--ty', ty);
+        
+        container.appendChild(spark);
+        
+        // Cleanup
+        setTimeout(() => spark.remove(), 600);
+      }
+    };
+
+    button.addEventListener('mousedown', triggerSparks);
+    button.addEventListener('touchstart', triggerSparks, { passive: true });
+  };
+
+  initHammerEffect();
+  document.addEventListener('astro:after-swap', initHammerEffect);
+</script>

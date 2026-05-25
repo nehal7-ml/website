@@ -1,0 +1,32 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import SectionHeader from './SectionHeader.astro';
+import projects from '../data/projects.json';
+---
+
+<section id="projects" class="flex flex-col items-start justify-center gap-12 mt-24 scroll-mt-24 max-w-7xl mx-auto w-full px-4">
+  <SectionHeader index="03" title="Featured Projects" gradient="steel" />
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+    {
+      projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          image={project.image}
+          url={project.url}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .text-gradient-ember {
+    background-image: var(--accent-gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>

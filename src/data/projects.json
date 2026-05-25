@@ -1,0 +1,32 @@
+[
+  {
+    "title": "DoodleForge Apparel",
+    "description": "A high-end ecommerce platform for custom-printed doodle apparel. Features a full-stack checkout experience, real-time shipping calculations, and a high-performance inventory management system forged for scale.",
+    "image": "/hammer.gif",
+    "url": "https://github.com/nehal7-ml/doodles-on-a-T"
+  },
+  {
+    "title": "Cubic Schematic",
+    "description": "A high-precision 3D simulation of a Rubik's Cube. Built with React Three Fiber and Three.js, focusing on complex geometric rotations and real-time lighting within a digital forge environment.",
+    "image": "/logo-dark.png",
+    "url": "https://github.com/nehal7-ml/cube-animate"
+  },
+  {
+    "title": "SveltyCMS Core",
+    "description": "Open-source contribution focused on a major backend architecture overhaul. Consolidated data controllers and optimized structural logic to improve system stability and developer ergonomics.",
+    "image": "/favicon.svg",
+    "url": "https://github.com/SveltyCMS/SveltyCMS"
+  },
+  {
+    "title": "Kinetic Sketch",
+    "description": "A fluid character animation engine exploring physics-based movement and skeletal constraints. Forged to test the boundaries of real-time 2D motion.",
+    "image": "/logo.png",
+    "url": "https://github.com/nehal7-ml/stick-man"
+  },
+  {
+    "title": "Peripheral Workbench",
+    "description": "[Under Construction] A specialized diagnostic suite for calibrating and testing computer peripherals. Engineered to validate latency, input precision, and polling rates.",
+    "image": "/hammer.gif",
+    "url": "https://github.com/nehal7-ml/peripheral-tester"
+  }
+]

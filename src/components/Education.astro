@@ -1,0 +1,24 @@
+---
+import EducationCard from './EducationCard.astro';
+import SectionHeader from './SectionHeader.astro';
+import education from '../data/education.json';
+---
+
+<section id="education" class="flex flex-col items-start justify-center gap-12 mt-24 scroll-mt-24 max-w-7xl mx-auto w-full px-4">
+  <SectionHeader index="02" title="Academic Credentials" gradient="steel" />
+  
+  <div class="flex flex-col gap-8 w-full">
+    {
+      education.map((item) => (
+        <EducationCard
+          degree={item.degree}
+          institution={item.institution}
+          location={item.location}
+          date={item.date}
+          gpa={item.gpa}
+          focus={item.focus}
+        />
+      ))
+    }
+  </div>
+</section>

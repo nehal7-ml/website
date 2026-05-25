@@ -1,0 +1,81 @@
+---
+
+---
+
+<footer class="mt-32 pb-16 px-4 max-w-7xl mx-auto w-full group">
+  <div
+    class="h-[1px] w-full bg-gradient-to-r from-transparent via-slate-700/50 to-transparent mb-12 relative overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"
+    >
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left"
+  >
+    <div class="flex flex-col gap-2">
+      <p class="font-mono text-xs text-slate-500 tracking-[0.2em] uppercase">
+        Built // 2026
+      </p>
+      <p class="text-slate-300 font-medium">
+        Forged in the <span class="text-gradient-steel font-bold italic"
+          >Digital Foundry</span
+        > by The Software Smith.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4 md:items-end">
+      <p class="font-mono text-xs text-slate-500 tracking-[0.2em] uppercase">
+        Tooling & Specifications
+      </p>
+      <div
+        class="flex flex-wrap justify-center md:justify-end gap-8 items-center"
+      >
+        <!-- Astro -->
+        <div class="group/tech relative" title="Astro">
+          <img
+            src="/astro-svgrepo-com.svg"
+            alt="Astro"
+            class="w-10 h-10 grayscale brightness-75 group-hover/tech:grayscale-0 group-hover/tech:brightness-110 group-hover/tech:drop-shadow-[0_0_10px_rgba(255,93,1,0.3)] transition-all duration-300"
+          />
+        </div>
+        <!-- Tailwind -->
+        <div class="group/tech relative" title="Tailwind CSS">
+          <img
+            src="/tailwind-svgrepo-com.svg"
+            alt="Tailwind CSS"
+            class="w-10 h-10 grayscale brightness-75 group-hover/tech:grayscale-0 group-hover/tech:brightness-110 group-hover/tech:drop-shadow-[0_0_10px_rgba(56,189,248,0.3)] transition-all duration-300"
+          />
+        </div>
+        <!-- TypeScript -->
+        <div class="group/tech relative" title="TypeScript">
+          <img
+            src="/typescript-svgrepo-com.svg"
+            alt="TypeScript"
+            class="w-10 h-10 grayscale brightness-75 group-hover/tech:grayscale-0 group-hover/tech:brightness-110 group-hover/tech:drop-shadow-[0_0_10px_rgba(49,120,198,0.3)] transition-all duration-300"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .text-gradient-steel {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite ease-in-out;
+  }
+</style>

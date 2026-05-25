@@ -1,0 +1,53 @@
+---
+interface Props {
+  index: string;
+  title: string;
+  gradient?: "steel" | "ember";
+}
+
+const { index, title, gradient } = Astro.props;
+
+const gradientClass = gradient === "ember" ? "text-gradient-ember" : gradient === "steel" ? "text-gradient-steel" : "";
+---
+
+<div class="flex items-center gap-6 w-full mb-12 group">
+  <div class="flex flex-col">
+    <span class="text-sm font-mono text-slate-400 tracking-[0.2em] uppercase mb-2 font-bold">Section // {index}</span>
+    <h2 class={`text-4xl md:text-5xl font-bold tracking-tight whitespace-nowrap ${gradientClass}`}>
+      {title}<span class="text-slate-600">.</span>
+    </h2>
+  </div>
+  <div class="h-[1px] flex-grow bg-gradient-to-r from-slate-700/50 to-transparent relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+  </div>
+</div>
+
+<style>
+  .text-gradient-steel {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    filter: drop-shadow(0 0 8px rgba(148, 163, 184, 0.3));
+  }
+
+  .text-gradient-ember {
+    background-image: var(--accent-gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.4));
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .group:hover .animate-shimmer {
+    animation: shimmer 1.5s infinite;
+  }
+</style>
