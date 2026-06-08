@@ -84,6 +84,13 @@
   </div>
 </div>
 <script>
+  type Element = {
+    x: number;
+    y: number;
+    type: number;
+    size: number;
+    rotation: number;
+  };
   class BlueprintBackground {
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
@@ -91,7 +98,7 @@
     height: number = 0;
     mouseX: number = -1000;
     mouseY: number = -1000;
-    elements: any[] = [];
+    elements: Element[] = [];
 
     constructor() {
       this.canvas = document.getElementById(
@@ -142,7 +149,7 @@
       }
     }
 
-    drawElement(el: any) {
+    drawElement(el: Element) {
       const { ctx } = this;
       ctx.save();
       ctx.translate(el.x, el.y);

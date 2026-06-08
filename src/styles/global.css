@@ -1,14 +1,14 @@
 @import "tailwindcss";
 :root {
   /* Forge Palette */
-  --forge-steel: 148, 163, 184;       /* Slate 400 */
+  --forge-steel: 148, 163, 184; /* Slate 400 */
   --forge-steel-bright: 248, 250, 252; /* Slate 50 */
-  --forge-ember: 239, 68, 68;        /* Red 500 */
-  --forge-ember-glow: 249, 115, 22;   /* Orange 500 */
-  
+  --forge-ember: 239, 68, 68; /* Red 500 */
+  --forge-ember-glow: 249, 115, 22; /* Orange 500 */
+
   --accent: var(--forge-steel);
   --accent-light: var(--forge-steel-bright);
-  
+
   /* Steel/Silver Gradient (Formerly Blue) - Brightened for Contrast */
   --accent-gradient: linear-gradient(
     45deg,
@@ -55,17 +55,25 @@ code {
   }
 
   @keyframes button-hit {
-    0%, 100% { transform: scale(1); }
-    10% { transform: scale(0.95); }
-    15% { transform: scale(1.05); }
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.95);
+    }
+    15% {
+      transform: scale(1.05);
+    }
   }
 
   @keyframes glow-pulse {
-    0%, 100% { 
+    0%,
+    100% {
       box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
       border-color: rgba(239, 68, 68, 0.3);
     }
-    50% { 
+    50% {
       box-shadow: 0 0 40px rgba(239, 68, 68, 0.6);
       border-color: rgba(239, 68, 68, 0.8);
     }
@@ -76,7 +84,9 @@ code {
     width: 6px;
     height: 6px;
     background: #ffffff;
-    box-shadow: 0 0 10px #fbbf24, 0 0 20px #f59e0b;
+    box-shadow:
+      0 0 10px #fbbf24,
+      0 0 20px #f59e0b;
     border-radius: 50%;
     pointer-events: none;
     z-index: -1;
@@ -85,5 +95,4 @@ code {
 }
 
 @theme {
- 
 }

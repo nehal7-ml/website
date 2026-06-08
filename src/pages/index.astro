@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+import Socials from "../components/Socials.astro";
 import WorkExperience from "../components/WorkExperience.astro";
 import Education from "../components/Education.astro";
 import Projects from "../components/Projects.astro";
@@ -8,13 +9,10 @@ import HomeAvatar from "../components/HomeAvatar.astro";
 import experience from "../data/expirence.json";
 import Navbar from "../components/Navbar.astro";
 import ContactButton from "../components/ContactButton.astro";
-import ContactForm from "../components/ContactForm.astro";
 import { getSecret } from "astro:env/server";
 
 const ready = getSecret("READY") === "TRUE";
 if (!ready) return Astro.rewrite("/coming-soon");
-
-const web3formsAccessKey = getSecret("WEB3FORMS_ACCESS_KEY") || "";
 ---
 
 <Layout title="Software Smith">
@@ -77,21 +75,8 @@ const web3formsAccessKey = getSecret("WEB3FORMS_ACCESS_KEY") || "";
     <Projects />
 
     <!-- Contact Section -->
-    <section
-      id="contact"
-      class="mx-auto mt-24 mb-16 flex w-full max-w-7xl scroll-mt-24 flex-col items-start justify-center gap-8 px-4"
-    >
-      <SectionHeader index="04" title="Contact Me" gradient="steel" />
-      <p
-        class="-mt-4 max-w-2xl text-xl leading-relaxed text-slate-200 md:text-2xl"
-      >
-        Have a project in mind or just want to say hi? Initiate a transmission
-        below and let's discuss the build.
-      </p>
-      <div class="w-full">
-        <ContactForm accessKey={web3formsAccessKey} />
-      </div>
-    </section>
+
+    <Socials />
   </main>
 </Layout>
 

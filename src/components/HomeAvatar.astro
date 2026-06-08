@@ -1,15 +1,23 @@
 ---
-
-import {Image} from 'astro:assets';
+import { Image } from "astro:assets";
 interface Props {
   image: string;
-
 }
 
 const { image } = Astro.props;
 ---
 
-
-<div class="flex flex-col items-center justify-center rounded-full h-52 w-52 bg-gradient-to-br from-accent-light to-accent-dark">
-  <Image loading={'eager'} class="rounded-full h-48 w-48" src={image} alt="Avatar" width="48" height="48" />
+<div
+  class="from-accent-light to-accent-dark flex h-52 w-52 flex-col items-center justify-center rounded-full bg-gradient-to-br"
+>
+  <Image
+    loading={"eager"}
+    class="h-48 w-48 rounded-full"
+    src={image}
+    alt="Avatar"
+    width="48"
+    height="48"
+  />
+  <h3>Nehal SK</h3>
+  <p class="text-xs">Software Engineer</p>
 </div>

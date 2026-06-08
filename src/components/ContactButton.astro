@@ -12,37 +12,6 @@
   >
 </a>
 
-<div
-  id="spark-container"
-  class="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-xl"
->
-  <div class="inset-0 block rounded-xl opacity-30">
-    <!-- Spark 1: Fast upward float, drifts slightly left -->
-    <span
-      class="absolute bottom-0 left-[20%] h-1 w-1 animate-[spark-1_1.5s_linear_infinite] rounded-full bg-amber-400 blur-[0.5px]"
-    ></span>
-
-    <!-- Spark 2: Slower, larger particle, drifts right -->
-    <span
-      class="absolute bottom-2 left-[45%] h-1.5 w-1.5 animate-[spark-2_2.2s_ease-in-out_infinite] rounded-full bg-orange-400 blur-[0.5px]"
-    ></span>
-
-    <!-- Spark 3: Tiny, high speed burst -->
-    <span
-      class="absolute bottom-1 left-[70%] h-0.5 w-0.5 animate-[spark-3_1.2s_ease-in_infinite] rounded-full bg-yellow-300"
-    ></span>
-
-    <!-- Spark 4: Mid-sized ember, delayed timing -->
-    <span
-      class="absolute bottom-0 left-[35%] h-1 w-1 animate-[spark-4_1.8s_linear_infinite_0.4s] rounded-full bg-red-400 blur-[1px]"
-    ></span>
-
-    <!-- Spark 5: Wandering drift from the right side -->
-    <span
-      class="h-1.2 w-1.2 absolute bottom-3 left-[80%] animate-[spark-5_2.5s_ease-out_infinite_0.2s] rounded-full bg-amber-300"
-    ></span>
-  </div>
-</div>
 <style>
   .bg-gradient-ember {
     background-image: var(--accent-gradient-red);
@@ -72,68 +41,5 @@
     box-shadow:
       0 0 50px rgba(251, 146, 60, 0.8),
       0 0 80px rgba(239, 68, 68, 0.6);
-  }
-  @keyframes spark-1 {
-    0% {
-      transform: translateY(0) translateX(0) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-120px) translateX(-15px) scale(0.3);
-      opacity: 0;
-    }
-  }
-
-  @keyframes spark-2 {
-    0% {
-      transform: translateY(0) translateX(0) scale(0.5);
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-160px) translateX(25px) scale(1.2);
-      opacity: 0;
-    }
-  }
-
-  @keyframes spark-3 {
-    0% {
-      transform: translateY(0) translateX(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-60px) translateX(10px);
-    }
-    100% {
-      transform: translateY(-140px) translateX(-5px);
-      opacity: 0;
-    }
-  }
-
-  @keyframes spark-4 {
-    0% {
-      transform: translateY(0) translateX(0) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-100px) translateX(-20px) scale(0.2);
-      opacity: 0;
-    }
-  }
-
-  @keyframes spark-5 {
-    0% {
-      transform: translateY(0) translateX(0) scale(0.8);
-      opacity: 0;
-    }
-    15% {
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateY(-150px) translateX(-30px) scale(0.4);
-      opacity: 0;
-    }
   }
 </style>
