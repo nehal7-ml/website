@@ -9,6 +9,80 @@
   <canvas id="blueprint-canvas" class="h-full w-full opacity-30"></canvas>
 </div>
 
+<div
+  id="spark-container"
+  class="pointer-events-none fixed inset-0 bottom-5 -z-10 h-full w-full overflow-hidden rounded-xl"
+>
+  <div class="inset-0 block rounded-xl opacity-30">
+    <!-- Original 5 Sparks -->
+    <span
+      class="absolute bottom-0 left-[20%] h-1 w-1 animate-[spark-1_1.5s_linear_infinite] rounded-full bg-amber-400 blur-[0.5px]"
+    ></span>
+    <span
+      class="absolute bottom-2 left-[45%] h-1.5 w-1.5 animate-[spark-2_2.2s_ease-in-out_infinite] rounded-full bg-orange-400 blur-[0.5px]"
+    ></span>
+    <span
+      class="absolute bottom-1 left-[70%] h-0.5 w-0.5 animate-[spark-3_1.2s_ease-in_infinite] rounded-full bg-yellow-300"
+    ></span>
+    <span
+      class="absolute bottom-0 left-[35%] h-1 w-1 animate-[spark-4_1.8s_linear_infinite_0.4s] rounded-full bg-red-400 blur-[1px]"
+    ></span>
+    <span
+      class="h-1.2 w-1.2 absolute bottom-3 left-[80%] animate-[spark-5_2.5s_ease-out_infinite_0.2s] rounded-full bg-amber-300"
+    ></span>
+
+    <!-- 10 New Unique Sparks -->
+    <!-- Spark 6: Deep left, heavy blur, slow float -->
+    <span
+      class="absolute bottom-1 left-[5%] h-2 w-2 animate-[spark-2_3s_ease-in-out_infinite_0.5s] rounded-full bg-orange-500 blur-[1.5px]"
+    ></span>
+
+    <!-- Spark 7: Left-center, sharp tiny spark, very fast -->
+    <span
+      class="absolute bottom-0 left-[12%] h-0.5 w-0.5 animate-[spark-3_1s_linear_infinite_0.1s] rounded-full bg-yellow-200"
+    ></span>
+
+    <!-- Spark 8: Center-left, medium ember, staggered delay -->
+    <span
+      class="h-1.2 w-1.2 absolute bottom-2 left-[28%] animate-[spark-1_1.9s_ease-out_infinite_0.7s] rounded-full bg-amber-400 blur-[0.3px]"
+    ></span>
+
+    <!-- Spark 9: Pure center, intense bright burst -->
+    <span
+      class="absolute bottom-0 left-[50%] h-1.5 w-1.5 animate-[spark-4_1.4s_ease-in_infinite_0.3s] rounded-full bg-white blur-[0.5px]"
+    ></span>
+
+    <!-- Spark 10: Center-right, tiny trailing dot -->
+    <span
+      class="absolute bottom-1 left-[58%] h-0.5 w-0.5 animate-[spark-5_2s_linear_infinite_0.9s] rounded-full bg-orange-300"
+    ></span>
+
+    <!-- Spark 11: Mid right, dark red ember, heavy delay -->
+    <span
+      class="absolute bottom-0 left-[65%] h-1 w-1 animate-[spark-1_2.4s_ease-in-out_infinite_1.2s] rounded-full bg-red-500 blur-[0.8px]"
+    ></span>
+
+    <!-- Spark 12: Far right, soft ambient flame glow -->
+    <span
+      class="absolute bottom-3 left-[75%] h-2.5 w-2.5 animate-[spark-2_2.8s_linear_infinite_0.2s] rounded-full bg-amber-500 blur-[2px]"
+    ></span>
+
+    <!-- Spark 13: Right edge, high-velocity streak -->
+    <span
+      class="absolute bottom-0 left-[88%] h-1 w-1 animate-[spark-3_1.1s_ease-in_infinite_0.6s] rounded-full bg-yellow-400"
+    ></span>
+
+    <!-- Spark 14: Deep right edge, floating cinder -->
+    <span
+      class="h-1.2 w-1.2 absolute bottom-2 left-[94%] animate-[spark-4_2.1s_ease-out_infinite_1.5s] rounded-full bg-orange-400 blur-[0.4px]"
+    ></span>
+
+    <!-- Spark 15: Left-center backup runner to break repetition density -->
+    <span
+      class="h-0.8 w-0.8 absolute bottom-0 left-[40%] animate-[spark-5_1.6s_linear_infinite_1.1s] rounded-full bg-amber-200"
+    ></span>
+  </div>
+</div>
 <script>
   class BlueprintBackground {
     canvas: HTMLCanvasElement;
@@ -154,5 +228,69 @@
       rgba(20, 25, 40, 0.5) 0%,
       transparent 50%
     );
+  }
+
+  @keyframes spark-1 {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120px) translateX(-15px) scale(0.3);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spark-2 {
+    0% {
+      transform: translateY(0) translateX(0) scale(0.5);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-160px) translateX(25px) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spark-3 {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-60px) translateX(10px);
+    }
+    100% {
+      transform: translateY(-140px) translateX(-5px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spark-4 {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(-20px) scale(0.2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spark-5 {
+    0% {
+      transform: translateY(0) translateX(0) scale(0.8);
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(-150px) translateX(-30px) scale(0.4);
+      opacity: 0;
+    }
   }
 </style>
