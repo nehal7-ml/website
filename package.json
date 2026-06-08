@@ -1,7 +1,8 @@
 {
-  "name": "website",
+  "name": "My Website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "main": "./src/pages/index.astro",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,16 +11,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
-    "@astrojs/tailwind": "6.0.2",
-    "@fontsource/poppins": "^5.2.5",
+    "@astrojs/check": "^0.9.9",
+    "@lucide/astro": "^1.17.0",
     "@tailwindcss/vite": "^4.1.4",
-    "astro": "5.10.2",
-    "tailwindcss": "^4.1.4",
+    "astro": "^6.4.4",
+    "tailwindcss": "4.3",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "@typescript-eslint/eslint-plugin": "^8.60.0",
+    "@typescript-eslint/parser": "^8.60.0",
+    "eslint": "^10.4.1",
+    "eslint-plugin-astro": "^1.7.0",
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript-eslint": "^8.60.0"
   }
 }

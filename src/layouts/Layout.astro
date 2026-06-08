@@ -2,8 +2,8 @@
 interface Props {
   title: string;
 }
-import "@fontsource/poppins";
 import "../styles/global.css";
+import { Font } from "astro:assets";
 import BlueprintBackground from "../components/BlueprintBackground.astro";
 import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
@@ -12,6 +12,7 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <Font cssVariable="--font-poppins" />
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />

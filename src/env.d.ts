@@ -1,1 +1,7 @@
-/// <reference path="../.astro/types.d.ts" />
+interface HCaptcha {
+  reset: () => void;
+}
+
+interface Window {
+  hcaptcha: HCaptcha;
+}

@@ -1,59 +1,70 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import WorkExperience from '../components/WorkExperience.astro';
-import Education from '../components/Education.astro';
-import Projects from '../components/Projects.astro';
-import HomeAvatar from '../components/HomeAvatar.astro';
-import experience from '../data/expirence.json';
-import avatar from '/public/avatar.png';
-import Navbar from '../components/Navbar.astro';
-import ContactButton from '../components/ContactButton.astro';
-import ContactForm from '../components/ContactForm.astro';
-import {
-  getSecret,
- } from 'astro:env/server';
+import Layout from "../layouts/Layout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import WorkExperience from "../components/WorkExperience.astro";
+import Education from "../components/Education.astro";
+import Projects from "../components/Projects.astro";
+import HomeAvatar from "../components/HomeAvatar.astro";
+import experience from "../data/expirence.json";
+import Navbar from "../components/Navbar.astro";
+import ContactButton from "../components/ContactButton.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { getSecret } from "astro:env/server";
 
+const ready = getSecret("READY") === "TRUE";
+if (!ready) return Astro.rewrite("/coming-soon");
 
-const ready =  getSecret('READY') ==="TRUE";
-if(!ready) return Astro.rewrite('/coming-soon');
-
-const web3formsAccessKey = getSecret('WEB3FORMS_ACCESS_KEY') || '';
+const web3formsAccessKey = getSecret("WEB3FORMS_ACCESS_KEY") || "";
 ---
 
 <Layout title="Software Smith">
   <Navbar />
   <main>
-
-    <section id="about" class="w-full flex flex-col md:flex-row justify-center items-center gap-10 lg:gap-16 md:px-6 mb-24 mt-12 scroll-mt-24">
-      <div class="flex-shrink-0">
+    <section
+      id="about"
+      class="mt-12 mb-24 flex w-full scroll-mt-24 flex-col items-center justify-center gap-10 md:flex-row md:px-6 lg:gap-16"
+    >
+      <div class="shrink-0">
         <HomeAvatar image={"/avatar.png"} />
       </div>
-      <div class="font-poppins flex flex-col items-center md:items-start text-center md:text-left">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4">
+      <div
+        class="font-poppins flex flex-col items-center text-center md:items-start md:text-left"
+      >
+        <h1
+          class="mb-4 text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl"
+        >
           The Software Smith!
         </h1>
-        <p class="text-xl md:text-2xl lg:text-3xl font-bold text-slate-200 mb-6">
-          I Can <span class="text-gradient-ember font-extrabold">Build Anything</span>.
+        <p
+          class="mb-6 text-xl font-bold text-slate-200 md:text-2xl lg:text-3xl"
+        >
+          I Can <span class="text-gradient-ember font-extrabold"
+            >Build Anything</span
+          >.
         </p>
-        <p class="text-base md:text-lg text-slate-300 max-w-xl leading-relaxed mb-8">
+        <p
+          class="mb-8 max-w-xl text-base leading-relaxed text-slate-300 md:text-lg"
+        >
           Passionate Software Engineer with a focus on Web Development,
-          dedicated to crafting elegant and user-friendly web applications and websites.
+          dedicated to crafting elegant and user-friendly web applications and
+          websites.
         </p>
         <ContactButton />
       </div>
     </section>
 
-    <section class="flex flex-col items-start justify-center gap-8 mt-16 max-w-7xl mx-auto w-full px-4">
+    <section
+      class="mx-auto mt-16 flex w-full max-w-7xl flex-col items-start justify-center gap-8 px-4"
+    >
       <SectionHeader index="01" title="Work Experience" gradient="steel" />
-      <div class="w-full max-w-3xl flex flex-col gap-6 self-center">
+      <div class="flex w-full max-w-3xl flex-col gap-6 self-center">
         {
           experience.map((experience) => (
             <WorkExperience
               title={experience.title}
               description={experience.description}
               startDate={experience.startDate}
-              endDate={experience.endDate} 
+              endDate={experience.endDate}
             />
           ))
         }
@@ -64,53 +75,57 @@ const web3formsAccessKey = getSecret('WEB3FORMS_ACCESS_KEY') || '';
 
     <Projects />
 
-
     <!-- Contact Section -->
-    <section id="contact" class="flex flex-col items-start justify-center gap-8 mt-24 mb-16 scroll-mt-24 max-w-7xl mx-auto w-full px-4">
+    <section
+      id="contact"
+      class="mx-auto mt-24 mb-16 flex w-full max-w-7xl scroll-mt-24 flex-col items-start justify-center gap-8 px-4"
+    >
       <SectionHeader index="04" title="Contact Me" gradient="steel" />
-      <p class="text-slate-200 max-w-2xl text-xl md:text-2xl leading-relaxed -mt-4">
-        Have a project in mind or just want to say hi? Initiate a transmission below and let's discuss the build.
+      <p
+        class="-mt-4 max-w-2xl text-xl leading-relaxed text-slate-200 md:text-2xl"
+      >
+        Have a project in mind or just want to say hi? Initiate a transmission
+        below and let's discuss the build.
       </p>
       <div class="w-full">
         <ContactForm accessKey={web3formsAccessKey} />
       </div>
     </section>
-
-	</main>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 100%;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	@media (min-width: 1024px) {
-		main {
-			width: 70%;
-			max-width: 1400px;
-		}
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 100%;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  @media (min-width: 1024px) {
+    main {
+      width: 70%;
+      max-width: 1400px;
+    }
+  }
+  .astro-a {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translatex(-50%);
+    width: 220px;
+    height: auto;
+    z-index: -1;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
   .text-gradient-steel {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
@@ -126,28 +141,31 @@ const web3formsAccessKey = getSecret('WEB3FORMS_ACCESS_KEY') || '';
     background-size: 400%;
     background-position: 0%;
   }
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
 </style>
