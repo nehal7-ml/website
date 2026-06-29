@@ -1,32 +1,42 @@
 [
   {
-    "title": "DoodleForge Apparel",
-    "description": "A high-end ecommerce platform for custom-printed doodle apparel. Features a full-stack checkout experience, real-time shipping calculations, and a high-performance inventory management system forged for scale.",
+    "title": "Doodles-on-a-T",
+    "description": "[Under Construction] A high-end ecommerce platform for custom-printed doodle apparel. Features a full-stack checkout experience, real-time shipping calculations, and a high-performance inventory management system forged for scale.",
     "image": "/hammer.gif",
-    "url": "https://github.com/nehal7-ml/doodles-on-a-T"
+    "git": "https://github.com/nehal7-ml/doodles-on-a-T"
+  },
+  {
+    "title": "Chrome Collections",
+    "description": "A superfast plaform to re-sell hotwheels collectibles in original packaging. Vibe coded on lovable",
+    "image": "https://chrome-collections-store.lovable.app/favicon.ico",
+    "url": "https://chrome-collections-store.lovable.app",
+    "git": "https://github.com/nehal7-ml/chrome-collections-store.git"
   },
   {
     "title": "Cubic Schematic",
     "description": "A high-precision 3D simulation of a Rubik's Cube. Built with React Three Fiber and Three.js, focusing on complex geometric rotations and real-time lighting within a digital forge environment.",
-    "image": "/logo-dark.png",
-    "url": "https://github.com/nehal7-ml/cube-animate"
+    "image": "https://cube.software-smith.in/icon-192.svg",
+    "url": "https://cube.software-smith.in",
+    "git": "https://github.com/nehal7-ml/cube-animate"
   },
   {
     "title": "SveltyCMS Core",
     "description": "Open-source contribution focused on a major backend architecture overhaul. Consolidated data controllers and optimized structural logic to improve system stability and developer ergonomics.",
-    "image": "/favicon.svg",
-    "url": "https://github.com/SveltyCMS/SveltyCMS"
-  },
-  {
-    "title": "Kinetic Sketch",
-    "description": "A fluid character animation engine exploring physics-based movement and skeletal constraints. Forged to test the boundaries of real-time 2D motion.",
-    "image": "/logo.png",
-    "url": "https://github.com/nehal7-ml/stick-man"
+    "image": "https://raw.githubusercontent.com/SveltyCMS/SveltyCMS/main/static/SveltyCMS.png",
+    "git": "https://github.com/SveltyCMS/SveltyCMS"
   },
   {
     "title": "Peripheral Workbench",
-    "description": "[Under Construction] A specialized diagnostic suite for calibrating and testing computer peripherals. Engineered to validate latency, input precision, and polling rates.",
-    "image": "/hammer.gif",
-    "url": "https://github.com/nehal7-ml/peripheral-tester"
+    "description": "A specialized diagnostic suite for calibrating and testing computer peripherals. Engineered to validate latency, input precision, and polling rates.",
+    "image": "https://stick.software-smith.in/favicon.png",
+
+    "url": "https://stick.software-smith.in/",
+    "git": "https://github.com/nehal7-ml/stick-man.git"
+  },
+  {
+    "title": "Stockfish-in-Browser",
+    "description": "[In the Forge] A powerful chess engine running in the browser. Built with WebAssembly and optimized for speed and efficiency.",
+    "image": "https://images.unsplash.com/photo-1560174038-da43ac74f01b?q=80&w=857&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "git": "https://github.com/nehal7-ml/browser-engine.git"
   }
 ]
