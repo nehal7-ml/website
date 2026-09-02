@@ -120,30 +120,6 @@ const isConfigured = !!accessKey;
         </p>
       </div>
 
-      <script>
-        // Lazy load hCaptcha script when contact section is visible
-        document.addEventListener("astro:after-swap", () => {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              if (entries[0].isIntersecting) {
-                const script = document.createElement("script");
-                script.src = "https://hcaptcha.com/1/api.js";
-                script.async = true;
-                script.defer = true;
-                document.head.appendChild(script);
-                observer.disconnect();
-              }
-            },
-            { rootMargin: "0px 0px 100px 0px" },
-          );
-
-          const contactSection = document.getElementById("contact");
-          if (contactSection) {
-            observer.observe(contactSection);
-          }
-        });
-      </script>
-
       <!-- Submit Button -->
       <div class="relative w-fit">
         <button
@@ -203,12 +179,41 @@ const isConfigured = !!accessKey;
       CRITICAL_ERROR: Failed to transmit data. Please verify network protocols
       or try again.
     </div>
+    <div class="mt-2 w-full text-center text-sm">
+      Powered by <a
+        href="https://web3forms.com/"
+        class="text-underline text-blue-500">Web3Forms</a
+      >
+    </div>
   </div>
 </div>
 
-<script is:inline src="https://web3forms.com/client/script.js" async defer
-></script>
+<script>
+  const form = document.getElementById("contact-form");
+  let captchaLoaded = false;
 
+  // Function to dynamically inject the hCaptcha script
+  function loadCaptcha() {
+    if (captchaLoaded || !form) return; // Prevent multiple loads
+    captchaLoaded = true;
+
+    const script = document.createElement("script");
+    script.src = "https://web3forms.com/client/script.js";
+    script.async = true;
+    script.defer = true;
+
+    document.body.appendChild(script);
+
+    // Remove event listeners once loaded to save performance
+    form.removeEventListener("focusin", loadCaptcha);
+    form.removeEventListener("click", loadCaptcha);
+  }
+  if (form) {
+    // Trigger loading as soon as the user interacts with any part of the form
+    form.addEventListener("focusin", loadCaptcha);
+    form.addEventListener("click", loadCaptcha);
+  }
+</script>
 <style>
   .bg-gradient-ember {
     background-image: var(--accent-gradient-red);
