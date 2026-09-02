@@ -14,11 +14,12 @@ const { title, description, image, git, url } = Astro.props;
   class="project-card group relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-800/50 transition-all duration-300 hover:border-slate-500/50"
 >
   <div class="aspect-video overflow-hidden">
-    <img
+<img
       src={image}
       alt={title}
       class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-    />
+      loading="lazy"
+      />
   </div>
   <div class="p-6">
     <h3
@@ -26,7 +27,7 @@ const { title, description, image, git, url } = Astro.props;
     >
       {title}
     </h3>
-    <p class="mb-6 text-base leading-relaxed text-slate-300 md:text-lg">
+    <p class="mb-6 text-base leading-relaxed text-white md:text-lg">
       {description}
     </p>
     <div class="flex flex-wrap gap-6">

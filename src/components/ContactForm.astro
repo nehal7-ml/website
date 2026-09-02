@@ -113,11 +113,35 @@ const isConfigured = !!accessKey;
 
       <!-- Spam Protection (hCaptcha) -->
       <div class="flex flex-col items-start gap-3 py-2">
-        <div class="h-captcha" data-captcha="true"></div>
+        <div id="h-captcha-container" class="h-captcha" data-captcha="true"></div>
         <p id="error-captcha" class="hidden font-mono text-sm text-rose-500">
           ERR: CAPTCHA_FAILED
         </p>
       </div>
+
+      <script>
+        // Lazy load hCaptcha script when contact section is visible
+        document.addEventListener("astro:after-swap", () => {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              if (entries[0].isIntersecting) {
+                const script = document.createElement("script");
+                script.src = "https://hcaptcha.com/1/api.js";
+                script.async = true;
+                script.defer = true;
+                document.head.appendChild(script);
+                observer.disconnect();
+              }
+            },
+            { rootMargin: "0px 0px 100px 0px" }
+          );
+
+          const contactSection = document.getElementById("contact");
+          if (contactSection) {
+            observer.observe(contactSection);
+          }
+        });
+      </script>
 
       <!-- Submit Button -->
       <div class="relative w-fit">
