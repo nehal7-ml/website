@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import logo from "../assets/logo-dark.png";
 
 interface Props {
   height: number;
@@ -13,7 +14,7 @@ let { height = 100, width = 100 }: Props = Astro.props;
   <Image
     loading="lazy"
     class="p-3"
-    src="/logo-dark.png"
+    src={logo}
     alt="logo"
     width={width}
     height={height}

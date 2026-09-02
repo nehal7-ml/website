@@ -13,7 +13,7 @@
     "git": "https://github.com/nehal7-ml/chrome-collections-store.git"
   },
   {
-    "title": "Cubic Schematic",
+    "title": "Rubik's Cube animator",
     "description": "A high-precision 3D simulation of a Rubik's Cube. Built with React Three Fiber and Three.js, focusing on complex geometric rotations and real-time lighting within a digital forge environment.",
     "image": "https://cube.software-smith.in/icon-192.svg",
     "url": "https://cube.software-smith.in",

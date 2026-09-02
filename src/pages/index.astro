@@ -6,6 +6,7 @@ import WorkExperience from "../components/WorkExperience.astro";
 import Education from "../components/Education.astro";
 import Projects from "../components/Projects.astro";
 import HomeAvatar from "../components/HomeAvatar.astro";
+
 import experience from "../data/expirence.json";
 import Navbar from "../components/Navbar.astro";
 import ContactButton from "../components/ContactButton.astro";
@@ -23,7 +24,7 @@ if (!ready) return Astro.rewrite("/coming-soon");
       class="mt-12 mb-24 flex w-full scroll-mt-24 flex-col items-center justify-center gap-10 md:flex-row md:px-6 lg:gap-16"
     >
       <div class="shrink-0">
-        <HomeAvatar image={"/avatar.png"} />
+        <HomeAvatar />
       </div>
       <div
         class="font-poppins flex flex-col items-center text-center md:items-start md:text-left"
@@ -56,18 +57,19 @@ if (!ready) return Astro.rewrite("/coming-soon");
       class="mx-auto mt-16 flex w-full max-w-7xl flex-col items-start justify-center gap-8 px-4"
     >
       <SectionHeader index="01" title="Work Experience" gradient="steel" />
-      <div class="flex w-full max-w-3xl flex-col gap-6 self-center">
+      <ul class="flex w-full flex-col gap-6 self-center">
         {
           experience.map((experience) => (
             <WorkExperience
               title={experience.title}
+              companyName={experience.companyName}
               description={experience.description}
               startDate={experience.startDate}
               endDate={experience.endDate}
             />
           ))
         }
-      </div>
+      </ul>
     </section>
 
     <Education />

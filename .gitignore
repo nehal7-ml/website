@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+# light house
+
+www.software-smith.in*
+
+.antigravitycli

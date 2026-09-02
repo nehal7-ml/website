@@ -30,7 +30,7 @@ const isConfigured = !!accessKey;
 
     <!-- Form Container -->
     <form id="contact-form" class="space-y-8" novalidate>
-      <h1 class="font-poppins mb-10 text-base">
+      <h1 class="font-poppins mb-10 text-lg">
         To reach me directly, please fill out the form below
       </h1>
       <input
@@ -55,7 +55,7 @@ const isConfigured = !!accessKey;
         <div class="space-y-3">
           <label
             for="contact-name"
-            class="block font-mono text-sm font-bold tracking-widest text-slate-400 uppercase"
+            class="block font-mono text-base font-bold tracking-widest text-slate-400 uppercase"
             >Client // Name</label
           >
           <input
@@ -63,7 +63,7 @@ const isConfigured = !!accessKey;
             name="name"
             id="contact-name"
             required
-            class="w-full rounded-xl border border-white/10 bg-black/40 px-5 py-4 text-lg text-white placeholder-slate-600 transition-all duration-300 focus:border-slate-400 focus:ring-1 focus:ring-slate-400/50 focus:outline-none"
+            class="w-full rounded-xl border border-white/10 bg-black/40 px-5 py-4 text-lg text-white placeholder-slate-300 transition-all duration-300 focus:border-slate-400 focus:ring-1 focus:ring-slate-400/50 focus:outline-none"
             placeholder="John Doe"
           />
           <p id="error-name" class="hidden font-mono text-sm text-rose-500">
@@ -75,7 +75,7 @@ const isConfigured = !!accessKey;
         <div class="space-y-3">
           <label
             for="contact-email"
-            class="block font-mono text-sm font-bold tracking-widest text-slate-400 uppercase"
+            class="block font-mono text-base font-bold tracking-widest text-slate-400 uppercase"
             >Client // Email</label
           >
           <input
@@ -83,7 +83,7 @@ const isConfigured = !!accessKey;
             name="email"
             id="contact-email"
             required
-            class="w-full rounded-xl border border-white/10 bg-black/40 px-5 py-4 text-lg text-white placeholder-slate-600 transition-all duration-300 focus:border-slate-400 focus:ring-1 focus:ring-slate-400/50 focus:outline-none"
+            class="w-full rounded-xl border border-white/10 bg-black/40 px-5 py-4 text-lg text-white placeholder-slate-300 transition-all duration-300 focus:border-slate-400 focus:ring-1 focus:ring-slate-400/50 focus:outline-none"
             placeholder="john@example.com"
           />
           <p id="error-email" class="hidden font-mono text-sm text-rose-500">
@@ -96,7 +96,7 @@ const isConfigured = !!accessKey;
       <div class="space-y-3">
         <label
           for="contact-message"
-          class="block font-mono text-sm font-bold tracking-widest text-slate-400 uppercase"
+          class="block font-mono text-base font-bold tracking-widest text-slate-400 uppercase"
           >Project // Specifications</label
         >
         <textarea
@@ -104,7 +104,7 @@ const isConfigured = !!accessKey;
           id="contact-message"
           required
           rows="5"
-          class="w-full resize-y rounded-xl border border-white/10 bg-black/40 px-5 py-4 text-lg text-white placeholder-slate-600 transition-all duration-300 focus:border-slate-400 focus:ring-1 focus:ring-slate-400/50 focus:outline-none"
+          class="focus:bor`der-slate-400 w-full resize-y rounded-xl border border-white/10 bg-black/40 px-5 py-4 text-lg text-white placeholder-slate-300 transition-all duration-300 focus:ring-1 focus:ring-slate-400/50 focus:outline-none"
           placeholder="Describe the build requirements..."></textarea>
         <p id="error-message" class="hidden font-mono text-sm text-rose-500">
           ERR: SPEC_REQUIRED
@@ -113,7 +113,8 @@ const isConfigured = !!accessKey;
 
       <!-- Spam Protection (hCaptcha) -->
       <div class="flex flex-col items-start gap-3 py-2">
-        <div id="h-captcha-container" class="h-captcha" data-captcha="true"></div>
+        <div id="h-captcha-container" class="h-captcha" data-captcha="true">
+        </div>
         <p id="error-captcha" class="hidden font-mono text-sm text-rose-500">
           ERR: CAPTCHA_FAILED
         </p>
@@ -133,7 +134,7 @@ const isConfigured = !!accessKey;
                 observer.disconnect();
               }
             },
-            { rootMargin: "0px 0px 100px 0px" }
+            { rootMargin: "0px 0px 100px 0px" },
           );
 
           const contactSection = document.getElementById("contact");
