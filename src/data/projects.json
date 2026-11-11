@@ -1,9 +1,10 @@
 [
   {
     "title": "Doodles-on-a-T",
-    "description": "[Under Construction] A high-end ecommerce platform for custom-printed doodle apparel. Features a full-stack checkout experience, real-time shipping calculations, and a high-performance inventory management system forged for scale.",
-    "image": "/hammer.gif",
-    "git": "https://github.com/nehal7-ml/doodles-on-a-T"
+    "description": "A high-end ecommerce platform for custom-printed doodle apparel. Features a full-stack checkout experience, real-time shipping calculations, and a high-performance inventory management system forged for scale.",
+    "image": "https://doodles.software-smith.in/logo.png",
+    "git": "https://github.com/nehal7-ml/doodles-on-a-T",
+    "url": "https://doodles.software-smith.in/"
   },
   {
     "title": "Chrome Collections",
