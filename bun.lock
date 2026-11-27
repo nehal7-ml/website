@@ -6,7 +6,7 @@
       "name": "website",
       "dependencies": {
         "@astrojs/check": "^0.9.10",
-        "@lucide/astro": "^1.17.0",
+        "@lucide/astro": "^1.82.0",
         "@tailwindcss/vite": "^4.1.4",
         "astro": "^7.2.10",
         "tailwindcss": "4.3",
@@ -269,7 +269,7 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.25", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ=="],
 
-    "@lucide/astro": ["@lucide/astro@1.17.0", "", { "peerDependencies": { "astro": "^4 || ^5 || ^6" } }, "sha512-wF5wyjF8zThvI5JVUWG1WLoFdbTcMNXouxnholAyR0EEFfWNnGP1DGsvuu7cym/2mj2vUEjPbIPPDgWwjabFRQ=="],
+    "@lucide/astro": ["@lucide/astro@1.82.0", "", { "peerDependencies": { "astro": "^4 || ^5 || ^6 || ^7" } }, "sha512-Pgyqa07B4/RAehVO4tNNFmoD2OvSj0XjbsJLncl0JYWnCqfhPMR2Ko6RE44c91zX+YnAcYOp36shhPr7DbUUBA=="],
 
     "@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@1.2.4", "", { "dependencies": { "@tybys/wasm-util": "^0.10.3" }, "peerDependencies": { "@emnapi/core": "^1.7.1 || ^2.0.0-alpha.4", "@emnapi/runtime": "^1.7.1 || ^2.0.0-alpha.4" } }, "sha512-AJxoUD2/15ESHbvpcyjU274nsAPLuOtPHCk0vKJM5pj//Fg/B1FXNWjPnXTT9PymCYYiHo4zPj0ZomXBKhoy7g=="],
 
