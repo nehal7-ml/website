@@ -3,19 +3,25 @@ import { Image } from "astro:assets";
 import avatar from "../assets/avatar.png";
 ---
 
-<div
-  class="from-accent-light to-accent-dark flex h-52 w-52 flex-col items-center justify-center rounded-full bg-linear-to-r"
->
-  <Image
-    loading="lazy"
-    class="h-48 w-48 rounded-full object-contain"
-    src={avatar}
-    width="144"
-    height={144}
-    alt="Nehal SK"
-    format="webp"
-    quality={100}
-  />
-  <h3>Nehal SK</h3>
-  <p class="text-sm">Software Engineer</p>
-</div>
+<figure class="flex flex-col items-center gap-4">
+  <div
+    class="rounded-full bg-linear-to-br from-accent-light/70 to-accent-dark/30 p-1"
+  >
+    <Image
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="h-[200px] w-[200px] rounded-full object-cover"
+      src={avatar}
+      width={400}
+      height={400}
+      alt="Nehal SK"
+      format="webp"
+      quality={90}
+    />
+  </div>
+  <figcaption class="text-center md:text-left">
+    <p class="text-lg font-semibold">Nehal SK</p>
+    <p class="text-sm text-slate-400">Software Engineer</p>
+  </figcaption>
+</figure>

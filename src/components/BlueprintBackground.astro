@@ -9,27 +9,23 @@
   <canvas id="blueprint-canvas" class="h-full w-full opacity-30"></canvas>
 </div>
 
+<!-- Rising embers. Animates transform/opacity only, so the compositor owns
+     it — no layout, no repaint, no JS. Reduced-motion kills it via global.css. -->
 <div
-  id="spark-container"
-  class="pointer-events-none fixed inset-0 bottom-5 -z-10 h-full w-full overflow-hidden rounded-xl"
+  id="ember-layer"
+  class="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+  aria-hidden="true"
 >
-  <div class="inset-0 block rounded-xl opacity-30">
-    <span
-      class="absolute bottom-0 left-[20%] h-1 w-1 animate-[spark-1_1.5s_linear_infinite] rounded-full bg-amber-400 blur-[0.5px]"
-    ></span>
-    <span
-      class="absolute bottom-2 left-[45%] h-1.5 w-1.5 animate-[spark-2_2.2s_ease-in-out_infinite] rounded-full bg-orange-400 blur-[0.5px]"
-    ></span>
-    <span
-      class="absolute bottom-1 left-[70%] h-0.5 w-0.5 animate-[spark-3_1.2s_ease-in_infinite] rounded-full bg-yellow-300"
-    ></span>
-    <span
-      class="absolute bottom-0 left-[35%] h-1 w-1 animate-[spark-4_1.8s_linear_infinite_0.4s] rounded-full bg-red-400 blur-[1px]"
-    ></span>
-    <span
-      class="h-1.2 w-1.2 absolute bottom-3 left-[80%] animate-[spark-5_2.5s_ease-out_infinite_0.2s] rounded-full bg-amber-300"
-    ></span>
-  </div>
+  <span class="ember" style="--x: 7%; --size: 4px; --hue: #f59e0b; --dur: 11s; --delay: 0s; --drift: -24px"></span>
+  <span class="ember" style="--x: 16%; --size: 3px; --hue: #fb923c; --dur: 14s; --delay: 3.5s; --drift: 18px"></span>
+  <span class="ember" style="--x: 27%; --size: 5px; --hue: #ef4444; --dur: 12s; --delay: 7s; --drift: -14px"></span>
+  <span class="ember" style="--x: 35%; --size: 3px; --hue: #fde047; --dur: 15s; --delay: 1.5s; --drift: 26px"></span>
+  <span class="ember" style="--x: 46%; --size: 4px; --hue: #f59e0b; --dur: 13s; --delay: 9s; --drift: -20px"></span>
+  <span class="ember" style="--x: 54%; --size: 3px; --hue: #fb923c; --dur: 16s; --delay: 5s; --drift: 12px"></span>
+  <span class="ember" style="--x: 63%; --size: 5px; --hue: #f59e0b; --dur: 12s; --delay: 11s; --drift: -28px"></span>
+  <span class="ember" style="--x: 72%; --size: 3px; --hue: #ef4444; --dur: 15s; --delay: 2.5s; --drift: 22px"></span>
+  <span class="ember" style="--x: 84%; --size: 4px; --hue: #fb923c; --dur: 14s; --delay: 8s; --drift: -16px"></span>
+  <span class="ember" style="--x: 93%; --size: 3px; --hue: #fde047; --dur: 16s; --delay: 6s; --drift: 20px"></span>
 </div>
 <script>
   type Element = {
@@ -205,66 +201,32 @@
     );
   }
 
-  @keyframes spark-1 {
-    0% {
-      transform: translateY(0) translateX(0) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-120px) translateX(-15px) scale(0.3);
-      opacity: 0;
-    }
+  .ember {
+    position: absolute;
+    bottom: -6px;
+    left: var(--x);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: var(--hue);
+    box-shadow: 0 0 6px var(--hue);
+    opacity: 0;
+    animation: ember-rise var(--dur) linear var(--delay) infinite;
   }
 
-  @keyframes spark-2 {
+  @keyframes ember-rise {
     0% {
-      transform: translateY(0) translateX(0) scale(0.5);
+      transform: translate3d(0, 0, 0);
       opacity: 0;
     }
-    20% {
-      opacity: 1;
+    12% {
+      opacity: 0.55;
+    }
+    70% {
+      opacity: 0.35;
     }
     100% {
-      transform: translateY(-160px) translateX(25px) scale(1.2);
-      opacity: 0;
-    }
-  }
-
-  @keyframes spark-3 {
-    0% {
-      transform: translateY(0) translateX(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-60px) translateX(10px);
-    }
-    100% {
-      transform: translateY(-140px) translateX(-5px);
-      opacity: 0;
-    }
-  }
-
-  @keyframes spark-4 {
-    0% {
-      transform: translateY(0) translateX(0) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-100px) translateX(-20px) scale(0.2);
-      opacity: 0;
-    }
-  }
-
-  @keyframes spark-5 {
-    0% {
-      transform: translateY(0) translateX(0) scale(0.8);
-      opacity: 0;
-    }
-    15% {
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateY(-150px) translateX(-30px) scale(0.4);
+      transform: translate3d(var(--drift), -34vh, 0);
       opacity: 0;
     }
   }
