@@ -9,32 +9,81 @@
   <canvas id="blueprint-canvas" class="h-full w-full opacity-30"></canvas>
 </div>
 
-<!-- Rising embers. Animates transform/opacity only, so the compositor owns
-     it — no layout, no repaint, no JS. Reduced-motion kills it via global.css. -->
 <div
-  id="ember-layer"
-  class="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
-  aria-hidden="true"
+  id="spark-container"
+  class="pointer-events-none fixed inset-0 bottom-5 -z-10 h-full w-full overflow-hidden rounded-xl"
 >
-  <span class="ember" style="--x: 7%; --size: 4px; --hue: #f59e0b; --dur: 11s; --delay: 0s; --drift: -24px"></span>
-  <span class="ember" style="--x: 16%; --size: 3px; --hue: #fb923c; --dur: 14s; --delay: 3.5s; --drift: 18px"></span>
-  <span class="ember" style="--x: 27%; --size: 5px; --hue: #ef4444; --dur: 12s; --delay: 7s; --drift: -14px"></span>
-  <span class="ember" style="--x: 35%; --size: 3px; --hue: #fde047; --dur: 15s; --delay: 1.5s; --drift: 26px"></span>
-  <span class="ember" style="--x: 46%; --size: 4px; --hue: #f59e0b; --dur: 13s; --delay: 9s; --drift: -20px"></span>
-  <span class="ember" style="--x: 54%; --size: 3px; --hue: #fb923c; --dur: 16s; --delay: 5s; --drift: 12px"></span>
-  <span class="ember" style="--x: 63%; --size: 5px; --hue: #f59e0b; --dur: 12s; --delay: 11s; --drift: -28px"></span>
-  <span class="ember" style="--x: 72%; --size: 3px; --hue: #ef4444; --dur: 15s; --delay: 2.5s; --drift: 22px"></span>
-  <span class="ember" style="--x: 84%; --size: 4px; --hue: #fb923c; --dur: 14s; --delay: 8s; --drift: -16px"></span>
-  <span class="ember" style="--x: 93%; --size: 3px; --hue: #fde047; --dur: 16s; --delay: 6s; --drift: 20px"></span>
+  <div class="inset-0 block rounded-xl opacity-30">
+    <!-- Original 5 Sparks -->
+    <span
+      class="absolute bottom-0 left-[20%] h-1 w-1 animate-[spark-1_1.5s_linear_infinite] rounded-full bg-amber-400 blur-[0.5px]"
+    ></span>
+    <span
+      class="absolute bottom-2 left-[45%] h-1.5 w-1.5 animate-[spark-2_2.2s_ease-in-out_infinite] rounded-full bg-orange-400 blur-[0.5px]"
+    ></span>
+    <span
+      class="absolute bottom-1 left-[70%] h-0.5 w-0.5 animate-[spark-3_1.2s_ease-in_infinite] rounded-full bg-yellow-300"
+    ></span>
+    <span
+      class="absolute bottom-0 left-[35%] h-1 w-1 animate-[spark-4_1.8s_linear_infinite_0.4s] rounded-full bg-red-400 blur-[1px]"
+    ></span>
+    <span
+      class="h-1.2 w-1.2 absolute bottom-3 left-[80%] animate-[spark-5_2.5s_ease-out_infinite_0.2s] rounded-full bg-amber-300"
+    ></span>
+
+    <!-- 10 New Unique Sparks -->
+    <!-- Spark 6: Deep left, heavy blur, slow float -->
+    <span
+      class="absolute bottom-1 left-[5%] h-2 w-2 animate-[spark-2_3s_ease-in-out_infinite_0.5s] rounded-full bg-orange-500 blur-[1.5px]"
+    ></span>
+
+    <!-- Spark 7: Left-center, sharp tiny spark, very fast -->
+    <span
+      class="absolute bottom-0 left-[12%] h-0.5 w-0.5 animate-[spark-3_1s_linear_infinite_0.1s] rounded-full bg-yellow-200"
+    ></span>
+
+    <!-- Spark 8: Center-left, medium ember, staggered delay -->
+    <span
+      class="h-1.2 w-1.2 absolute bottom-2 left-[28%] animate-[spark-1_1.9s_ease-out_infinite_0.7s] rounded-full bg-amber-400 blur-[0.3px]"
+    ></span>
+
+    <!-- Spark 9: Pure center, intense bright burst -->
+    <span
+      class="absolute bottom-0 left-[50%] h-1.5 w-1.5 animate-[spark-4_1.4s_ease-in_infinite_0.3s] rounded-full bg-white blur-[0.5px]"
+    ></span>
+
+    <!-- Spark 10: Center-right, tiny trailing dot -->
+    <span
+      class="absolute bottom-1 left-[58%] h-0.5 w-0.5 animate-[spark-5_2s_linear_infinite_0.9s] rounded-full bg-orange-300"
+    ></span>
+
+    <!-- Spark 11: Mid right, dark red ember, heavy delay -->
+    <span
+      class="absolute bottom-0 left-[65%] h-1 w-1 animate-[spark-1_2.4s_ease-in-out_infinite_1.2s] rounded-full bg-red-500 blur-[0.8px]"
+    ></span>
+
+    <!-- Spark 12: Far right, soft ambient flame glow -->
+    <span
+      class="absolute bottom-3 left-[75%] h-2.5 w-2.5 animate-[spark-2_2.8s_linear_infinite_0.2s] rounded-full bg-amber-500 blur-[2px]"
+    ></span>
+
+    <!-- Spark 13: Right edge, high-velocity streak -->
+    <span
+      class="absolute bottom-0 left-[88%] h-1 w-1 animate-[spark-3_1.1s_ease-in_infinite_0.6s] rounded-full bg-yellow-400"
+    ></span>
+
+    <!-- Spark 14: Deep right edge, floating cinder -->
+    <span
+      class="h-1.2 w-1.2 absolute bottom-2 left-[94%] animate-[spark-4_2.1s_ease-out_infinite_1.5s] rounded-full bg-orange-400 blur-[0.4px]"
+    ></span>
+
+    <!-- Spark 15: Left-center backup runner to break repetition density -->
+    <span
+      class="h-0.8 w-0.8 absolute bottom-0 left-[40%] animate-[spark-5_1.6s_linear_infinite_1.1s] rounded-full bg-amber-200"
+    ></span>
+  </div>
 </div>
 <script>
-  type Element = {
-    x: number;
-    y: number;
-    type: number;
-    size: number;
-    rotation: number;
-  };
   class BlueprintBackground {
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
@@ -42,10 +91,7 @@
     height: number = 0;
     mouseX: number = -1000;
     mouseY: number = -1000;
-    elements: Element[] = [];
-    grid!: HTMLCanvasElement;
-    reduced: boolean = window.matchMedia("(prefers-reduced-motion: reduce)")
-      .matches;
+    elements: any[] = [];
 
     constructor() {
       this.canvas = document.getElementById(
@@ -64,23 +110,7 @@
       this.height = window.innerHeight;
       this.canvas.width = this.width;
       this.canvas.height = this.height;
-      this.buildGrid();
       this.initElements();
-    }
-
-    // The dots never move, so they're drawn once into an offscreen canvas
-    // instead of ~1000 fillRects on every animation frame.
-    buildGrid() {
-      this.grid = document.createElement("canvas");
-      this.grid.width = this.width;
-      this.grid.height = this.height;
-      const g = this.grid.getContext("2d")!;
-      g.fillStyle = "rgba(255, 255, 255, 0.03)";
-      for (let x = 0; x < this.width; x += 50) {
-        for (let y = 0; y < this.height; y += 50) {
-          g.fillRect(x, y, 1, 1);
-        }
-      }
     }
 
     bindEvents() {
@@ -88,14 +118,6 @@
       window.addEventListener("mousemove", (e) => {
         this.mouseX = e.clientX;
         this.mouseY = e.clientY;
-        document.documentElement.style.setProperty(
-          "--mouse-x",
-          `${e.clientX}px`,
-        );
-        document.documentElement.style.setProperty(
-          "--mouse-y",
-          `${e.clientY}px`,
-        );
       });
     }
 
@@ -120,7 +142,7 @@
       }
     }
 
-    drawElement(el: Element) {
+    drawElement(el: any) {
       const { ctx } = this;
       ctx.save();
       ctx.translate(el.x, el.y);
@@ -170,7 +192,14 @@
 
     render() {
       this.ctx.clearRect(0, 0, this.width, this.height);
-      this.ctx.drawImage(this.grid, 0, 0);
+
+      // Draw grid dots (always visible but very faint)
+      this.ctx.fillStyle = "rgba(255, 255, 255, 0.03)";
+      for (let x = 0; x < this.width; x += 50) {
+        for (let y = 0; y < this.height; y += 50) {
+          this.ctx.fillRect(x, y, 1, 1);
+        }
+      }
 
       // Draw architecture elements revealed by mouse
       this.elements.forEach((el) => {
@@ -184,7 +213,7 @@
         }
       });
 
-      if (!this.reduced) requestAnimationFrame(() => this.render());
+      requestAnimationFrame(() => this.render());
     }
   }
 
@@ -195,37 +224,72 @@
 <style>
   #blueprint-container {
     background: radial-gradient(
-      circle at 50% 50%,
-      rgba(20, 25, 40, 0.05) 0%,
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(20, 25, 40, 0.5) 0%,
       transparent 50%
     );
   }
 
-  .ember {
-    position: absolute;
-    bottom: -6px;
-    left: var(--x);
-    width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
-    background: var(--hue);
-    box-shadow: 0 0 8px var(--hue), 0 0 16px rgba(var(--forge-ember), 0.6);
-    opacity: 0;
-    animation: ember-rise var(--dur) linear var(--delay) infinite;
+  @keyframes spark-1 {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120px) translateX(-15px) scale(0.3);
+      opacity: 0;
+    }
   }
 
-  @keyframes ember-rise {
+  @keyframes spark-2 {
     0% {
+      transform: translateY(0) translateX(0) scale(0.5);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-160px) translateX(25px) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spark-3 {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-60px) translateX(10px);
+    }
+    100% {
+      transform: translateY(-140px) translateX(-5px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spark-4 {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(-20px) scale(0.2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spark-5 {
+    0% {
+      transform: translateY(0) translateX(0) scale(0.8);
       opacity: 0;
     }
     15% {
-      opacity: 1;
-    }
-    65% {
-      opacity: 0.6;
+      opacity: 0.9;
     }
     100% {
-      transform: translate3d(var(--drift), -34vh, 0);
+      transform: translateY(-150px) translateX(-30px) scale(0.4);
       opacity: 0;
     }
   }
