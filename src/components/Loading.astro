@@ -3,7 +3,6 @@
   enable-background="new 0 0 365.043 275.545"
   height="100"
   overflow="visible"
-  overflow="visible"
   viewBox="0 0 365.043 275.545"
   width="100"
   version="1.1"
@@ -95,3 +94,34 @@
     </svg>
   </g>
 </svg>
+
+<style>
+  .animate-hammer-hit {
+    animation: hammer-hit 1.4s ease-in-out infinite;
+  }
+
+  @keyframes hammer-hit {
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(20px);
+    }
+  }
+
+  .animate-spark {
+    animation: spark 1s linear infinite;
+  }
+
+  @keyframes spark {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.1;
+    }
+  }
+</style>

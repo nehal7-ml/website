@@ -92,6 +92,14 @@
       window.addEventListener("mousemove", (e) => {
         this.mouseX = e.clientX;
         this.mouseY = e.clientY;
+        document.documentElement.style.setProperty(
+          "--mouse-x",
+          `${e.clientX}px`,
+        );
+        document.documentElement.style.setProperty(
+          "--mouse-y",
+          `${e.clientY}px`,
+        );
       });
     }
 

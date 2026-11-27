@@ -29,6 +29,7 @@
 html {
   font-family: system-ui, sans-serif;
   background: #13151a;
+  color: #f8fafc;
 }
 code {
   font-family:
@@ -50,6 +51,20 @@ code {
 
 .bg-gradient-ember:hover {
   background-position: 100%;
+}
+
+/* Tailwind can't generate hover: variants for classes that aren't theme
+   colors, so the card's gradient hovers are declared here instead. */
+.group:hover .group-hover\:text-gradient-steel {
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hover\:text-gradient-ember:hover {
+  background-image: var(--accent-gradient-red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @layer utilities {
@@ -80,6 +95,8 @@ code {
 }
 
 @theme {
+  --color-accent-light: #f8fafc;
+  --color-accent-dark: #94a3b8;
 }
 
 @media (prefers-reduced-motion: reduce) {
