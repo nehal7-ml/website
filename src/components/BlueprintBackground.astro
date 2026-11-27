@@ -14,7 +14,6 @@
   class="pointer-events-none fixed inset-0 bottom-5 -z-10 h-full w-full overflow-hidden rounded-xl"
 >
   <div class="inset-0 block rounded-xl opacity-30">
-    <!-- Original 5 Sparks -->
     <span
       class="absolute bottom-0 left-[20%] h-1 w-1 animate-[spark-1_1.5s_linear_infinite] rounded-full bg-amber-400 blur-[0.5px]"
     ></span>
@@ -29,57 +28,6 @@
     ></span>
     <span
       class="h-1.2 w-1.2 absolute bottom-3 left-[80%] animate-[spark-5_2.5s_ease-out_infinite_0.2s] rounded-full bg-amber-300"
-    ></span>
-
-    <!-- 10 New Unique Sparks -->
-    <!-- Spark 6: Deep left, heavy blur, slow float -->
-    <span
-      class="absolute bottom-1 left-[5%] h-2 w-2 animate-[spark-2_3s_ease-in-out_infinite_0.5s] rounded-full bg-orange-500 blur-[1.5px]"
-    ></span>
-
-    <!-- Spark 7: Left-center, sharp tiny spark, very fast -->
-    <span
-      class="absolute bottom-0 left-[12%] h-0.5 w-0.5 animate-[spark-3_1s_linear_infinite_0.1s] rounded-full bg-yellow-200"
-    ></span>
-
-    <!-- Spark 8: Center-left, medium ember, staggered delay -->
-    <span
-      class="h-1.2 w-1.2 absolute bottom-2 left-[28%] animate-[spark-1_1.9s_ease-out_infinite_0.7s] rounded-full bg-amber-400 blur-[0.3px]"
-    ></span>
-
-    <!-- Spark 9: Pure center, intense bright burst -->
-    <span
-      class="absolute bottom-0 left-[50%] h-1.5 w-1.5 animate-[spark-4_1.4s_ease-in_infinite_0.3s] rounded-full bg-white blur-[0.5px]"
-    ></span>
-
-    <!-- Spark 10: Center-right, tiny trailing dot -->
-    <span
-      class="absolute bottom-1 left-[58%] h-0.5 w-0.5 animate-[spark-5_2s_linear_infinite_0.9s] rounded-full bg-orange-300"
-    ></span>
-
-    <!-- Spark 11: Mid right, dark red ember, heavy delay -->
-    <span
-      class="absolute bottom-0 left-[65%] h-1 w-1 animate-[spark-1_2.4s_ease-in-out_infinite_1.2s] rounded-full bg-red-500 blur-[0.8px]"
-    ></span>
-
-    <!-- Spark 12: Far right, soft ambient flame glow -->
-    <span
-      class="absolute bottom-3 left-[75%] h-2.5 w-2.5 animate-[spark-2_2.8s_linear_infinite_0.2s] rounded-full bg-amber-500 blur-[2px]"
-    ></span>
-
-    <!-- Spark 13: Right edge, high-velocity streak -->
-    <span
-      class="absolute bottom-0 left-[88%] h-1 w-1 animate-[spark-3_1.1s_ease-in_infinite_0.6s] rounded-full bg-yellow-400"
-    ></span>
-
-    <!-- Spark 14: Deep right edge, floating cinder -->
-    <span
-      class="h-1.2 w-1.2 absolute bottom-2 left-[94%] animate-[spark-4_2.1s_ease-out_infinite_1.5s] rounded-full bg-orange-400 blur-[0.4px]"
-    ></span>
-
-    <!-- Spark 15: Left-center backup runner to break repetition density -->
-    <span
-      class="h-0.8 w-0.8 absolute bottom-0 left-[40%] animate-[spark-5_1.6s_linear_infinite_1.1s] rounded-full bg-amber-200"
     ></span>
   </div>
 </div>
@@ -99,6 +47,9 @@
     mouseX: number = -1000;
     mouseY: number = -1000;
     elements: Element[] = [];
+    grid!: HTMLCanvasElement;
+    reduced: boolean = window.matchMedia("(prefers-reduced-motion: reduce)")
+      .matches;
 
     constructor() {
       this.canvas = document.getElementById(
@@ -117,7 +68,23 @@
       this.height = window.innerHeight;
       this.canvas.width = this.width;
       this.canvas.height = this.height;
+      this.buildGrid();
       this.initElements();
+    }
+
+    // The dots never move, so they're drawn once into an offscreen canvas
+    // instead of ~1000 fillRects on every animation frame.
+    buildGrid() {
+      this.grid = document.createElement("canvas");
+      this.grid.width = this.width;
+      this.grid.height = this.height;
+      const g = this.grid.getContext("2d")!;
+      g.fillStyle = "rgba(255, 255, 255, 0.03)";
+      for (let x = 0; x < this.width; x += 50) {
+        for (let y = 0; y < this.height; y += 50) {
+          g.fillRect(x, y, 1, 1);
+        }
+      }
     }
 
     bindEvents() {
@@ -199,14 +166,7 @@
 
     render() {
       this.ctx.clearRect(0, 0, this.width, this.height);
-
-      // Draw grid dots (always visible but very faint)
-      this.ctx.fillStyle = "rgba(255, 255, 255, 0.03)";
-      for (let x = 0; x < this.width; x += 50) {
-        for (let y = 0; y < this.height; y += 50) {
-          this.ctx.fillRect(x, y, 1, 1);
-        }
-      }
+      this.ctx.drawImage(this.grid, 0, 0);
 
       // Draw architecture elements revealed by mouse
       this.elements.forEach((el) => {
@@ -220,7 +180,7 @@
         }
       });
 
-      requestAnimationFrame(() => this.render());
+      if (!this.reduced) requestAnimationFrame(() => this.render());
     }
   }
 

@@ -2,35 +2,35 @@
   {
     "title": "Senior Software Engineer",
     "companyName": "Cyberoni LLC",
-    "description": "Engineered the flagship digital infrastructure for Cyberoni, including a high-performance services store and a bespoke CMS for content delivery. Managed and scaled client-facing solutions using Next.js, Vercel, and Stripe integration, ensuring architectural integrity across diverse project deployments.",
+    "description": "Built and ran Cyberoni's services store and a custom CMS, and shipped client projects on Next.js, Vercel and Stripe.",
     "startDate": "Aug 2023",
     "endDate": "Aug 2024"
   },
   {
-    "title": "Independent Artisan",
-    "companyName": "Freelance Full Stack",
-    "description": "Forged bespoke digital solutions for over 25 global clients. Engineered a vast portfolio including Chrome extensions, cross-platform mobile apps (React Native), and diverse front-end systems (Vue, Svelte, React). Specialized in building robust backend utilities using Node.js and Python for complex automation tasks.",
+    "title": "Freelance Developer",
+    "companyName": "Self-employed",
+    "description": "Full-stack freelance work for 25+ clients: Chrome extensions, React Native apps, and front-ends in Vue, Svelte and React, plus Node.js and Python automation.",
     "startDate": "Apr 2022",
     "endDate": "Present"
   },
   {
     "title": "System Operator",
     "companyName": "IBM India",
-    "description": "Trained in the bedrock of critical computing: Z/os Mainframe systems. Provided mission-critical support for massive bulk data processing environments. Provided technical support for various software changes for the Mainframe systems of Bank of Ireland and Element Financials. Learnt the use of various tools such as CA7, NetView, ISPF and SMP/e. ",
+    "description": "Supported Z/OS mainframe systems for Bank of Ireland and Element Financial — bulk data processing with CA7, NetView, ISPF and SMP/E.",
     "startDate": "Jan 2018",
     "endDate": "Jun 2019"
   },
   {
     "title": "Research Developer Intern",
     "companyName": "Queue Solutions",
-    "description": "Collaborated with Dr. Leon Sterling to architect a React-based simulation platform. Forged a visual interface to showcase advanced motivational models for project management, translating complex academic theories into an interactive digital tool.",
+    "description": "Built a React simulation platform with Dr. Leon Sterling that turned his project-management motivation models into an interactive tool.",
     "startDate": "Dec 2020",
     "endDate": "May 2021"
   },
   {
     "title": "Instrumentation Intern",
     "companyName": "NTPC Power Plant",
-    "description": "Studied the intersection of industrial hardware and digital monitoring at the Ballabgarh Power Plant. Calibrated sensors and instruments for critical control flows, including furnace thermal regulation, water purity analysis, and steam temperature management for large-scale energy production.",
+    "description": "Instrumentation internship at the Ballabgarh power plant — calibrated sensors for furnace temperature, water purity and steam control.",
     "startDate": "Apr 2016",
     "endDate": "Jun 2016"
   }

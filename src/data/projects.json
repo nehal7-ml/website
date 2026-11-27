@@ -1,42 +1,41 @@
 [
   {
     "title": "Doodles-on-a-T",
-    "description": "A high-end ecommerce platform for custom-printed doodle apparel. Features a full-stack checkout experience, real-time shipping calculations, and a high-performance inventory management system forged for scale.",
+    "description": "Ecommerce store for custom-printed doodle apparel: checkout, live shipping rates, and an inventory system.",
     "image": "https://doodles.software-smith.in/logo.png",
     "git": "https://github.com/nehal7-ml/doodles-on-a-T",
     "url": "https://doodles.software-smith.in/"
   },
   {
     "title": "Chrome Collections",
-    "description": "A superfast plaform to re-sell hotwheels collectibles in original packaging. Vibe coded on lovable",
+    "description": "Store for reselling Hot Wheels collectibles in their original packaging. Built with Lovable.",
     "image": "https://chrome-collections-store.lovable.app/favicon.ico",
     "url": "https://chrome-collections-store.lovable.app",
     "git": "https://github.com/nehal7-ml/chrome-collections-store.git"
   },
   {
     "title": "Rubik's Cube animator",
-    "description": "A high-precision 3D simulation of a Rubik's Cube. Built with React Three Fiber and Three.js, focusing on complex geometric rotations and real-time lighting within a digital forge environment.",
+    "description": "3D Rubik's Cube simulator built with React Three Fiber and Three.js, with smooth rotations and real-time lighting.",
     "image": "https://cube.software-smith.in/icon-192.svg",
     "url": "https://cube.software-smith.in",
     "git": "https://github.com/nehal7-ml/cube-animate"
   },
   {
     "title": "SveltyCMS Core",
-    "description": "Open-source contribution focused on a major backend architecture overhaul. Consolidated data controllers and optimized structural logic to improve system stability and developer ergonomics.",
+    "description": "Open-source contribution: consolidated the data controllers and cleaned up structural logic to improve stability.",
     "image": "https://raw.githubusercontent.com/SveltyCMS/SveltyCMS/main/static/SveltyCMS.png",
     "git": "https://github.com/SveltyCMS/SveltyCMS"
   },
   {
     "title": "Peripheral Workbench",
-    "description": "A specialized diagnostic suite for calibrating and testing computer peripherals. Engineered to validate latency, input precision, and polling rates.",
+    "description": "Diagnostic tool for testing input peripherals — measures latency, accuracy, and polling rate.",
     "image": "https://stick.software-smith.in/favicon.png",
-
     "url": "https://stick.software-smith.in/",
     "git": "https://github.com/nehal7-ml/stick-man.git"
   },
   {
     "title": "Stockfish-in-Browser",
-    "description": "[In the Forge] A powerful chess engine running in the browser. Built with WebAssembly and optimized for speed and efficiency.",
+    "description": "Chess engine compiled to WebAssembly so it runs in the browser.",
     "image": "https://images.unsplash.com/photo-1560174038-da43ac74f01b?q=80&w=857&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "git": "https://github.com/nehal7-ml/browser-engine.git"
   }

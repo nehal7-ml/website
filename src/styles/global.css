@@ -42,6 +42,16 @@ code {
     monospace;
 }
 
+.bg-gradient-ember {
+  background-image: var(--accent-gradient-red);
+  background-size: 400%;
+  background-position: 0%;
+}
+
+.bg-gradient-ember:hover {
+  background-position: 100%;
+}
+
 @layer utilities {
   @keyframes spark-fly {
     0% {
@@ -51,31 +61,6 @@ code {
     100% {
       transform: translate(var(--tx), var(--ty)) scale(0);
       opacity: 0;
-    }
-  }
-
-  @keyframes button-hit {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    10% {
-      transform: scale(0.95);
-    }
-    15% {
-      transform: scale(1.05);
-    }
-  }
-
-  @keyframes glow-pulse {
-    0%,
-    100% {
-      box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
-      border-color: rgba(239, 68, 68, 0.3);
-    }
-    50% {
-      box-shadow: 0 0 40px rgba(239, 68, 68, 0.6);
-      border-color: rgba(239, 68, 68, 0.8);
     }
   }
 
@@ -95,4 +80,14 @@ code {
 }
 
 @theme {
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -18,7 +18,7 @@ const { title, companyName, description, startDate, endDate } = Astro.props;
   >
     <h3 class="text-3xl font-bold tracking-tight text-white">
       {title} // <span
-        class="moving-gradient bg-linear-to-br from-slate-500 via-orange-300 via-red-500 to-slate-600 bg-clip-text text-transparent"
+        class="bg-linear-to-br from-slate-500 via-orange-300 via-red-500 to-slate-600 bg-clip-text text-transparent"
         >{companyName}</span
       >
     </h3>
@@ -33,21 +33,3 @@ const { title, companyName, description, startDate, endDate } = Astro.props;
   </p>
 </li>
 
-<style>
-  @keyframes slowBreath {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .moving-gradient {
-    background-size: 200% 200%;
-    animation: slowBreath 5.5s ease-in-out infinite;
-  }
-</style>
